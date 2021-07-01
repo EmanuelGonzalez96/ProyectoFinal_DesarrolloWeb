@@ -1,0 +1,29 @@
+/* Header */
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    .logo {
+        height: 115px;
+        width: 120px;
+        border-radius: 80px;
+        margin: 3px;
+    }
+    nav {
+        font-family: 'Petit Formal Script', cursive;
+        color: black;
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: bold;
+        a {
+            &:hover {
+                color: rgb(235, 139, 171);
+            }
+        }
+    }
+    li {
+        padding: 0 2rem;
+    }
+}

@@ -1,0 +1,40 @@
+/* Presentation */
+
+.sectionOne {
+    margin: 0.5%;
+    background-image: url(images/fondo.jpeg);
+    opacity: 0.8;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.title-first {
+    font-size: 100px;
+    font-family: sans-serif;
+    color: whitesmoke;
+    text-shadow: -2px -2px 1px #000;
+    &::first-letter {
+        color: rgb(235, 139, 171);
+        font-size: 125px;
+        text-decoration: underline;
+    }
+}
+
+.paragraph1 {
+    color: whitesmoke;
+    margin: 10%;
+    padding: 10px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(177, 177, 177, 0.8);
+    border-radius: 10px;
+    font-style: italic;
+    text-align: center;
+    font-size: 30px;
+    width: 40%;
+}
