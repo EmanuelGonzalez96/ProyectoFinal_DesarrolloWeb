@@ -1,4 +1,3 @@
-preview
 <h1 align="center">Hola 👋, Soy Emanuel Gonzalez</h1>
 <h3 align="center">Soy estudiante de la carrera de Desarrollo Full Stack de Coderhouse</h3>
 
