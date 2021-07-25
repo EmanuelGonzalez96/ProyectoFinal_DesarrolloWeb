@@ -1,4 +1,5 @@
 /* Generales */
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
 * {
   margin: 0;
   padding: 0;
@@ -34,6 +35,9 @@ header nav a:hover {
 }
 header li {
   padding: 0 2rem;
+}
+header .icon {
+  margin: 5px;
 }
 
 /* Presentation */
@@ -194,6 +198,10 @@ footer {
   font-size: 14px;
   color: #C7C7C7;
   margin-top: 20px;
+}
+
+.colum1 button {
+  margin-top: 10px;
 }
 
 .colum2 {
@@ -385,5 +393,6 @@ footer {
     margin-top: 40px;
   }
 }
+/* 404 */
 
 /*# sourceMappingURL=style.css.map */
