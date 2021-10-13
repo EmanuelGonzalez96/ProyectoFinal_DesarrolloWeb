@@ -2,11 +2,9 @@ function agregarProductos() {
     let rowProductos = $("#row-productos");
     rowProductos.html("")
     indumentaria.forEach(producto => {
-        /*let rowProductos = document.getElementById("row-productos");*/
-        /*let div = document.createElement("div")*/
         rowProductos.append(`
         <div class = "col-lg-4 col-sm-12 col-12 mt-3">
-         <div class="card">
+         <div class="card" category=${producto.categoria}>
           <img src=${producto.imagen} class="card-img-top" alt="COLALESS CON PUNTILLA">
            <div class="card-body">
              <h5 class="card-title">${producto.nombre}</h5>
@@ -18,30 +16,17 @@ function agregarProductos() {
             </div>
          </div>
         </div> `);
-        /*div.classList = "col-lg-4 col-sm-12 col-12 mt-3"
-        div.innerHTML = `
-            <div class="card">
-                <img src=${producto.imagen} class="card-img-top" alt="COLALESS CON PUNTILLA">
-                <div class="card-body">
-                    <h5 class="card-title">${producto.nombre}</h5>
-                    <a href="404.html" class="btn btn-outline-danger">$${producto.precio}</a>
-                </div>
-            </div>`
-        rowProductos.appendChild(div)*/
     })
 }
 
-agregarProductos();
 
 function productosFiltrados(array) {
     let rowProductos = $("#row-productos");
     rowProductos.html("")
     array.forEach(producto => {
-        /*let rowProductos = document.getElementById("row-productos");*/
-        /*let div = document.createElement("div")*/
         rowProductos.append(`
         <div class = "col-lg-4 col-sm-12 col-12 mt-3">
-          <div class="card">
+          <div class="card" category=${producto.categoria}>
             <img src=${producto.imagen} class="card-img-top" alt="COLALESS CON PUNTILLA">
             <div class="card-body">
               <h5 class="card-title">${producto.nombre}</h5>
@@ -53,67 +38,45 @@ function productosFiltrados(array) {
             </div>
           </div>
         </div> `);
-        /*div.classList = "col-lg-4 col-sm-12 col-12 mt-3"
-        div.innerHTML = `
-            <div class="card">
-                <img src=${producto.imagen} class="card-img-top" alt="COLALESS CON PUNTILLA">
-                <div class="card-body">
-                    <h5 class="card-title">${producto.nombre}</h5>
-                    <a href="404.html" class="btn btn-outline-danger">$${producto.precio}</a>
-                </div>
-            </div>`
-        rowProductos.appendChild(div)*/
     })
 }
 
+agregarProductos();
 
 
 /* ORDENAMIENTO DE MENOR A MAYOR SEGUN PRECIOS */
 
-/*let btnMenorPrecio = document.getElementById("menorP")
-let btnMenorPrecio = $("#menorP");
-btnMenorPrecio.addEventListener("click", ordenarMenorPrecio)*/
-$("#menorP").on('click', ordenarMenorPrecio);
-
-
 function ordenarMenorPrecio() {
-    /*let rowProductos = document.getElementById("row-productos");*/
     let rowProductos = $("#row-productos");
     rowProductos.innerHTML = "";
-
     var ordenarMenorPrecio = indumentaria.sort((a, b) => a.precio - b.precio);
-
-    sessionStorage.setItem(productosFiltrados(ordenarMenorPrecio));
-
+    productosFiltrados(ordenarMenorPrecio);
+    sessionStorage.setItem("menorPrecio", ordenarMenorPrecio);
 }
+
+$("#menorP").on('click', ordenarMenorPrecio);
 
 
 /* ORDENAMIENTO DE MAYOR A MENOR SEGUN PRECIOS */
 
-/*let btnMayorPrecio = document.getElementById("mayorP")*/
-/*let btnMayorPrecio = $("#mayorP");
-btnMayorPrecio.addEventListener("click", ordernarMayorPrecio)*/
-$("#mayorP").on('click', ordenarMayorPrecio);
-
 function ordenarMayorPrecio() {
-
-    /*let rowProductos = document.getElementById("row-productos");*/
     let rowProductos = $("#row-productos");
     rowProductos.innerHTML = "";
-
     let ordenarMayorPrecio = indumentaria.sort((a, b) => b.precio - a.precio);
-
-
-    sessionStorage.setItem(productosFiltrados(ordenarMayorPrecio));
-
-
+    productosFiltrados(ordenarMayorPrecio);
+    sessionStorage.setItem("mayorPrecio", ordenarMayorPrecio);
 }
+
+$("#mayorP").on('click', ordenarMayorPrecio);
+
+
+/* NEWSLETTER */
 
 $(function() {
     //Declaramos la url que vamos a usar para el GET
     const URLGET = "https://jsonplaceholder.typicode.com/posts"
 
-    //Escuachamos el click del boton suscribe
+    //Escuchamos el click del boton suscribe
     $("#suscribe").click(() => {
         $.post(URLGET, (respuesta, estado) => {
             if (estado == "success") {
@@ -122,4 +85,32 @@ $(function() {
             }
         });
     });
+});
+
+
+/* TIPO DE PRODUCTO */
+
+// AGREGANDO CLASE ACTIVE AL PRIMER ENLACE
+$('.category_list .category_item[category="all"]').addClass('ct_item-active');
+
+// FILTRANDO PRODUCTOS
+$('.category_item').click(function() {
+    var catProduct = $(this).attr('category');
+    console.log(catProduct);
+
+    // AGREGANDO CLASE ACTIVE AL ENLACE SELECCIONADO
+    $('.category_item').removeClass('ct_item-active');
+    $(this).addClass('ct_item-active');
+
+    // OCULTANDO PRODUCTOS
+    $('.card').hide();
+
+    // MOSTRANDO PRODUCTOS
+    $('.card[category="' + catProduct + '"]').show();
+
+});
+
+// MOSTRANDO TODOS LOS PRODUCTOS 
+$('.category_item[category="all"]').click(function() {
+    $('.card').show();
 });

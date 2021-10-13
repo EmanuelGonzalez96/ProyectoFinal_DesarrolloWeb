@@ -69,6 +69,8 @@
         </nav>
     </header>
 
+
+
     <div class="row justify-content-md-center">
         <div class="col-md-auto">
             <div id="carouselExampleCaptions" class="carousel slide pb-3" data-bs-ride="carousel">
@@ -113,17 +115,27 @@
     <section class="container-fluid .bg-light py-5 d-lg-block">
         <h2 class="text-center">Productos</h2>
         <!-- JS -->
+        <div class="wrap">
+            <h1>Tipo de producto</h1>
+            <div class="store-wrapper">
+                <div class="category_list">
+                    <a href="#" class="category_item" category="all">Todo</a>
+                    <a href="#" class="category_item" category="colaless">Colaless</a>
+                    <a href="#" class="category_item" category="microtul">Microtul</a>
+                    <a href="#" class="category_item" category="packs">Packs</a>
+                    <a href="#" class="category_item" category="pijamas">Pijamas</a>
+                </div>
+            </div>
+        </div>
 
         <select class="form-select" aria-label="Default select example">
-            <option selected>Ordenar por</option>
-            <option id="menorP" value="1">Menor precio</option>
-            <option id="mayorP" value="2">Mayor precio</option>
-        </select>
-
+                <option selected>Ordenar por</option>
+                <option id="menorP" value="1">Menor precio</option>
+                <option id="mayorP" value="2">Mayor precio</option>
+            </select>
 
         <div class="container">
-            <div class="row" id="row-productos">
-            </div>
+            <div class="row" id="row-productos"></div>
         </div>
     </section>
 

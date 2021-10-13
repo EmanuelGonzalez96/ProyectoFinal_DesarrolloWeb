@@ -1,5 +1,3 @@
-$(function agregarProductos() {
-    $("#btnSlideToggle").click(() => {
-        $("#caja-prueba").toggle("slow");
-    })
-});
+$("#btnSlideToggle").click(() => {
+    $("#caja-prueba").toggle("slow");
+})
